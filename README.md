@@ -27,7 +27,7 @@ The testbench performs:
 
 Waveform screenshots are available in `results/`.
 
-The details about what each waveform screenshot points shows is available in `results\Waveform Details.txt\`.
+The details about what each waveform screenshot points shows is available in `results\Waveform Details.txt`.
 
 ## Tools Used
 - SystemVerilog
