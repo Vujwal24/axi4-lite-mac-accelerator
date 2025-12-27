@@ -1,0 +1,5 @@
+1) The first waveform is obtained after running the testbench directly without adding any other signals to view in the waveform.
+
+2) The second waveform is obtained after adding all the signals of the slave module to view how the MAC unit works.
+
+3) The second waveform is obtained after adding the DUT signals to the waveform to view all the signals involved with the top module.
