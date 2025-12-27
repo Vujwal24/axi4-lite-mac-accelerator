@@ -61,8 +61,6 @@ module axi4_lite_master #(
 
     mst_state_t state_q, state_d;
 
-    // Delayed versions of trigger signals
-    // These align START_READ / START_WRITE with FSM timing
     logic rd_req_d, wr_req_d;
 
     // Read address channel driving
@@ -95,7 +93,6 @@ module axi4_lite_master #(
     end
 
     // Capture trigger signals
-    // This avoids missing short pulses
     always_ff @(posedge ACLK) begin
         if (!ARESETN) begin
             rd_req_d <= 1'b0;
@@ -111,27 +108,22 @@ module axi4_lite_master #(
         state_d = state_q;
         case (state_q)
             ST_IDLE:
-                // Priority: write over read
                 if (wr_req_d)       state_d = ST_WR_PHASE;
                 else if (rd_req_d)  state_d = ST_RD_ADDR;
 
             ST_RD_ADDR:
-                // Move to data phase once address is accepted
                 if (M_ARVALID && M_ARREADY)
                     state_d = ST_RD_DATA;
 
             ST_RD_DATA:
-                // Complete read once data is transferred
                 if (M_RVALID && M_RREADY)
                     state_d = ST_IDLE;
 
             ST_WR_PHASE:
-                // Both address and data must be accepted
                 if (M_AWREADY && M_WREADY)
                     state_d = ST_WR_RESP;
 
             ST_WR_RESP:
-                // Write completes when response is accepted
                 if (M_BVALID && M_BREADY)
                     state_d = ST_IDLE;
 
@@ -141,3 +133,4 @@ module axi4_lite_master #(
     end
 
 endmodule
+
