@@ -17,6 +17,9 @@ This project implements a custom Multiply–Accumulate (MAC) hardware accelerato
 - MAC unit operates independently from AXI logic
 - Control and datapath are cleanly separated
 
+The RTL Schematic is available in `results/RTL Schematic.png`.
+The MAC unit is not visible in the RTL Schematic screenshot since it is instantiated inside the axi4_lite_slave module.
+
 ## Register Map
 See `docs/register_map.md`
 
@@ -27,7 +30,7 @@ The testbench performs:
 
 Waveform screenshots are available in `results/`.
 
-The details about what each waveform screenshot shows is available in `results\Waveform Details.txt`.
+The details about what each waveform screenshot shows is available in `results/Waveform Details.txt`.
 
 ## Tools Used
 - SystemVerilog
