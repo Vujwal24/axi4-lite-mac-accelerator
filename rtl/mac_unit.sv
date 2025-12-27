@@ -2,8 +2,8 @@ module mac_unit (
     input  logic        clk,
     input  logic        rst_n,
 
-    input  logic        start,   // 1-cycle pulse
-    input  logic        clear,   // level-sensitive clear
+    input  logic        start,
+    input  logic        clear,
 
     input  logic [7:0]  a,
     input  logic [7:0]  b,
@@ -14,7 +14,6 @@ module mac_unit (
 
     logic [15:0] mult_res;
 
-    // Combinational multiply
     assign mult_res = a * b;
 
     always_ff @(posedge clk) begin
@@ -23,7 +22,7 @@ module mac_unit (
             done <= 1'b0;
         end
         else begin
-            done <= 1'b0;  // default
+            done <= 1'b0;
 
             if (clear) begin
                 acc <= 32'd0;
@@ -36,3 +35,4 @@ module mac_unit (
     end
 
 endmodule
+
