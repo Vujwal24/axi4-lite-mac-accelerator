@@ -37,7 +37,6 @@ module axi4_lite_top #(
     logic [1:0]            r_resp_s;
     logic [1:0]            b_resp_s;
 
-    // ---------------- AXI MASTER ----------------
     axi4_lite_master master_inst (
         .ACLK        (ACLK),
         .ARESETN     (ARESETN),
@@ -71,7 +70,6 @@ module axi4_lite_top #(
         .M_BREADY    (b_rdy_m)
     );
 
-    // ---------------- AXI SLAVE ----------------
     axi4_lite_slave slave_inst (
         .ACLK        (ACLK),
         .ARESETN     (ARESETN),
@@ -102,4 +100,5 @@ module axi4_lite_top #(
     );
 
 endmodule
+
 
