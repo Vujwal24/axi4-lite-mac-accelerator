@@ -25,7 +25,9 @@ The testbench performs:
 - Three consecutive MAC operations with accumulation
 - Independent read/write tests on non-MAC registers
 
-Waveform screenshots are available in `results/waveforms/`.
+Waveform screenshots are available in `results/`.
+
+The details about what each waveform screenshot points shows is available in `results\Waveform Details.txt\`.
 
 ## Tools Used
 - SystemVerilog
