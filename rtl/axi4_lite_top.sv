@@ -1,13 +1,6 @@
-// ------------------------------------------------------------
 // AXI4-Lite Top Module
-// ------------------------------------------------------------
 // This module connects the AXI4-Lite master and slave directly.
-// It represents a minimal SoC-style integration where a master
-// communicates with a memory-mapped peripheral through AXI.
-//
-// No protocol logic is implemented here.
-// This module only wires signals between master and slave.
-// ------------------------------------------------------------
+// This module only wires signals between master and slave and does not have any internal logic
 
 module axi4_lite_top #(
     parameter DATA_WIDTH = 32,
@@ -109,3 +102,4 @@ module axi4_lite_top #(
     );
 
 endmodule
+
